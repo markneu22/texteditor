@@ -1,6 +1,6 @@
 #include <iostream>
 #include <SDL2/SDL.h>
-#include <piecetable_h>
+#include "piecetable.h"
 
 const int WIDTH = 1000, HEIGHT = 1000;
 
@@ -23,5 +23,10 @@ int main(int argc, char* argv[]){
     }
     SDL_DestroyWindow(window);
     SDL_Quit();
+    std::string testString = "hello world";
+    char *charPtr;
+    charPtr = &testString[0];
+    std::cout << charPtr;
+    PieceTable* table = new PieceTable(charPtr);
     return EXIT_SUCCESS;
 }

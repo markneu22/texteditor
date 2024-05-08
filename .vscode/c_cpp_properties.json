@@ -10,7 +10,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "D:/14A_Neuperger_Mark/C++/Compiler/ucrt64/bin/gcc.exe",
+            "compilerPath": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "intelliSenseMode": "windows-msvc-x64"
         }
     ],
