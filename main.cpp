@@ -5,7 +5,6 @@
 const int WIDTH = 1000, HEIGHT = 1000;
 
 int main(int argc, char* argv[]){
-    std::cout << "worked";
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Window *window = SDL_CreateWindow("Textless",
     SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, WIDTH, HEIGHT, SDL_WINDOW_ALLOW_HIGHDPI);
@@ -26,6 +25,7 @@ int main(int argc, char* argv[]){
     std::string testString = "hello world";
     char *charPtr;
     charPtr = &testString[0];
+    std::cout << "hello world";
     std::cout << charPtr;
     PieceTable* table = new PieceTable(charPtr);
     return EXIT_SUCCESS;
