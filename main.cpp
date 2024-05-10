@@ -20,7 +20,7 @@ int main(int argc, char* argv[]){
             switch (windowEvent.type)
             {
             case SDL_QUIT:
-                free(table);
+                delete(table);
                 break;
             case SDL_TEXTINPUT:
                 std::cout << windowEvent.text.text;

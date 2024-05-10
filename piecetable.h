@@ -18,14 +18,13 @@ public:
     PieceTable(char* readText);
     void write(char* newText);
     char* readBuffer();
-    ~PieceTable();
 };
 PieceTable::PieceTable(char* readText) : originalBuffer(readText)
 {
 };
 void PieceTable::write(char* newText)
 {
-    *addBuffer.buffer += *newText;
+    strcpy(addBuffer.buffer,newText);
 }
 char* PieceTable::readBuffer(){
     return addBuffer.buffer;
