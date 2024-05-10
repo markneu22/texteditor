@@ -13,20 +13,29 @@ int main(int argc, char* argv[]){
         return 1;
     }
     SDL_Event windowEvent;
+    char *charPtr;
+    PieceTable* table = new PieceTable(charPtr);
     while(true){
         if(SDL_PollEvent(&windowEvent)){
-            if(windowEvent.type == SDL_QUIT ){
+            switch (windowEvent.type)
+            {
+            case SDL_QUIT:
+                free(table);
+                break;
+            case SDL_TEXTINPUT:
+                std::cout << windowEvent.text.text;
+                charPtr = windowEvent.text.text;
+                // This line causes the program to crash without running anything else.
+                // Need to debug ASAP.
+                table->write(charPtr);
+                std::cout << "wrote";
+                std::cout << table->readBuffer();
+                std::cout << "read";
                 break;
             }
         }
     }
     SDL_DestroyWindow(window);
     SDL_Quit();
-    std::string testString = "hello world";
-    char *charPtr;
-    charPtr = &testString[0];
-    std::cout << "hello world";
-    std::cout << charPtr;
-    PieceTable* table = new PieceTable(charPtr);
     return EXIT_SUCCESS;
 }

@@ -1,12 +1,11 @@
 #ifndef piecetable_h
 #define piecetable_h
-//TODO: must use this command: g++ -c main.cpp -o main.o
 
 struct Buffer
 {
-    const char* buffer;
-    Buffer() : buffer("") {}
-    Buffer(const char* data) : buffer(data){}
+    char* buffer;
+    Buffer() : buffer() {}
+    Buffer(char* data) : buffer(data){}
 };
 
 
@@ -17,13 +16,18 @@ private:
     Buffer addBuffer;
 public:
     PieceTable(char* readText);
+    void write(char* newText);
+    char* readBuffer();
     ~PieceTable();
-    void write();
 };
 PieceTable::PieceTable(char* readText) : originalBuffer(readText)
 {
 };
-void PieceTable::write()
+void PieceTable::write(char* newText)
 {
+    *addBuffer.buffer += *newText;
+}
+char* PieceTable::readBuffer(){
+    return addBuffer.buffer;
 }
 #endif
