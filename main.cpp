@@ -25,12 +25,8 @@ int main(int argc, char* argv[]){
             case SDL_TEXTINPUT:
                 std::cout << windowEvent.text.text;
                 charPtr = windowEvent.text.text;
-                // This line causes the program to crash without running anything else.
-                // Need to debug ASAP.
                 table->write(charPtr);
-                std::cout << "wrote";
                 std::cout << table->readBuffer();
-                std::cout << "read";
                 break;
             }
         }
