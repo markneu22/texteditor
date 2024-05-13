@@ -3,15 +3,9 @@
 #include <iostream>
 struct Buffer
 {
-    // Ugly ass temporary fix
     char* buffer;
-    Buffer(){
-        char huh = 'a';
-        buffer = &huh;
-    }
-    Buffer(char* data) : buffer(data){
-        std::cout << buffer;
-    }
+    Buffer(){}
+    Buffer(char* data) : buffer(data){}
 };
 
 
@@ -34,7 +28,15 @@ void PieceTable::write(char* newText)
     // But it only saves recent input
     // Must be because of C++ wizardry
     // Gotta fix ASAP
-    strcat(addBuffer.buffer,newText);
+    if(addBuffer.buffer){
+        std::cout << "Before: " << addBuffer.buffer << '\n';
+        std::cout << "Value of newText: " << newText;
+        strcat(addBuffer.buffer,newText);
+        std::cout << "After: " << addBuffer.buffer << '\n';
+        return;
+    }
+    addBuffer.buffer = newText;
+    return;
 }
 char* PieceTable::readBuffer(){
     return addBuffer.buffer;

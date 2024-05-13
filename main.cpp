@@ -23,10 +23,9 @@ int main(int argc, char* argv[]){
                 delete(table);
                 break;
             case SDL_TEXTINPUT:
-                std::cout << windowEvent.text.text;
                 charPtr = windowEvent.text.text;
                 table->write(charPtr);
-                std::cout << table->readBuffer();
+                std::cout << table->readBuffer() << '\n';
                 break;
             }
         }
